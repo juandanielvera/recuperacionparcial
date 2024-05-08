@@ -34,23 +34,18 @@ public class Banco {
     public static void agregarCuenta(Cuenta_bancaria cuenta) {
         lista_Cuentas_Bancarias.add(cuenta);
     }
+    public String obtenerListaCuentas() {
+        String listaCuentasArea = "";
+        for (Cuenta_bancaria cuenta : Banco.getListaCuentaBancarias()) {
+            listaCuentasArea = lista_Cuentas_Bancarias + "Nombre Titular: " + cuenta.getNombreTitular() + "Apellido Titular: "
+                    + cuenta.getApellidosTitular() + " Numero Cuenta: " + cuenta.getNumeroCuenta()
+                    + " Saldo de la cuenta: " + cuenta.getSaldo() + "\n";
 
-    public static void retirar(Cuenta_bancaria cuenta, double cantidad) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'retirar'");
-    }
+        }
+        return listaCuentasArea;
+    }}
 
-    public static void depositar(Cuenta_bancaria cuenta, double cantidad) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'depositar'");
-    }
-
-    public static Cuenta_bancaria[] getListaCuentas() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getListaCuentas'");
-    }
-    }
-
+   
 
 
 

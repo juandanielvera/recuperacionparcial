@@ -23,7 +23,7 @@ public class Cuenta_ahorros extends Cuenta_bancaria {
     }
 
     @Override
-    public  void retirar(int valor) {
+    public  void retirar(double valor) {
         assert valor > 0;
         if (getSaldo() >= valor) {
             double saldoNuevo = getSaldo() - valor;

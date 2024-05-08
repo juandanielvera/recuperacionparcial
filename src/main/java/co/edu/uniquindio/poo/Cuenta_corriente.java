@@ -23,35 +23,31 @@ public class Cuenta_corriente extends Cuenta_bancaria{
     }
 
     @Override
-    public void retirar(int valor) {
+    public void retirar(double valor) {
         assert valor > 0;
         assert SobreGiro > 0;
         if(valor<=getSaldo()){
-            double Nuevo_Saldo = getSaldo() - valor;
-            setSaldo(Nuevo_Saldo);
+            double saldoNuevo = getSaldo() - valor;
+            setSaldo(saldoNuevo);
         }
         else if(SobreGiro+getSaldo()>valor){
-
+            
             setSaldo(getSaldo()-valor);
-            double Nuevo_Sobregiro = SobreGiro - valor;
-            SobreGiro = Nuevo_Sobregiro;
+            double sobregiroNuevo = SobreGiro - valor;
+            SobreGiro = sobregiroNuevo;
         }
         else{
-            System.out.println("no hay  fondos suficientes ");
+            System.out.println("No tienes suficiente dinero(Pobre) ");
         }
-
+        
     }
 
-    public static void crearCuentaCorriente(String nombreTitular, String apellido,
-    String numeroCuenta, double SobreGiro) {
-        Cuenta_corriente cuentaCorriente = new Cuenta_corriente(nombreTitular, apellido, numeroCuenta, SobreGiro);
+    public static void crearCuentaCorriente(String nombres, String apellidos,
+    String numeroCuenta, double sobregiro) {
+        Cuenta_corriente cuentaCorriente = new Cuenta_corriente(nombres, apellidos, numeroCuenta, sobregiro);
         Banco.agregarCuenta(cuentaCorriente);
 
     }
 
-    public static void crearCuenta_corriente(String nombre, String apellido, String numeroCuenta, int info) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'crearCuenta_corriente'");
-    }
 }
   
